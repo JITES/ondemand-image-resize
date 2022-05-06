@@ -1,0 +1,6 @@
+# baseURL
+@baseURL = http://localhost:8000
+
+###
+# Resize image
+GET {{ baseURL }}/resize?url=che&height=200&width=200
