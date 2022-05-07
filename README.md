@@ -16,6 +16,9 @@ If it asking for permissions then please run the following command before runnin
 ```
 chmod +x ./script/npm.install.sh
 ```
+
+### Test
+- Run ``` npm test ``` to execute test
 ### Execute a sample request
 If developer is using VSCODE with REST client plugin, we can use REST/resize.http file to make sample request.
 
