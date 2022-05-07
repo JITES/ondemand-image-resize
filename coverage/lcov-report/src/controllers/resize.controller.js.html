@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">82.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/35</span>
+                <span class='fraction'>29/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.5% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60.6% </span>
+                <span class="strong">84.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/33</span>
+                <span class='fraction'>28/33</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,9 +132,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -145,10 +145,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,25 +153,29 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,8 +191,8 @@ function isBuffer(buffer) {
 &nbsp;
 const resize = async (req, res) =&gt; {
 	const errors = validationResult(req);
-	<span class="missing-if-branch" title="if path not taken" >I</span>if (!errors.isEmpty()) 
-<span class="cstat-no" title="statement not covered" >		return res.status(422).json({ message: INVALID_REQUEST, errors: errors.array() });</span>
+	if (!errors.isEmpty()) 
+		return res.status(422).json({ message: INVALID_REQUEST, errors: errors.array() });
     
 	try {
 		const width = req.query.width;
@@ -202,13 +202,13 @@ const resize = async (req, res) =&gt; {
 		const validImage = isBuffer(imageBuffer);
 		const resizedImage = await ResizeService.resize(imageBuffer,parseInt(width), parseInt(height));
 		const isValidResizedImage = isBuffer(resizedImage);
-		<span class="missing-if-branch" title="if path not taken" >I</span>if(isValidResizedImage) {
-<span class="cstat-no" title="statement not covered" >			res.set('Content-Type', 'image/png');</span>
-<span class="cstat-no" title="statement not covered" >			res.status(StatusCodes.ACCEPTED).send(resizedImage);</span>
+		if(isValidResizedImage) {
+			res.set('Content-Type', 'image/png');
+			res.status(StatusCodes.ACCEPTED).send(resizedImage);
 		}
-		else {
-			console.log(`Image Valid - ${validImage}, Resized Image Valid - ${isValidResizedImage}`);
-			res.status(StatusCodes.BAD_REQUEST).send({ message : INVALID_IMAGE });
+		else <span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >			console.log(`Image Valid - ${validImage}, Resized Image Valid - ${isValidResizedImage}`);</span>
+<span class="cstat-no" title="statement not covered" >			res.status(StatusCodes.BAD_REQUEST).send({ message : INVALID_IMAGE });</span>
 		}
 	} catch (error) {
 <span class="cstat-no" title="statement not covered" >		console.log(error);</span>
@@ -216,24 +216,24 @@ const resize = async (req, res) =&gt; {
 	}
 };
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >convertStreamToBuffer(</span>stream) {
-<span class="cstat-no" title="statement not covered" >	return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-		const buffer = <span class="cstat-no" title="statement not covered" >[];</span>
-<span class="cstat-no" title="statement not covered" >		stream.on('data', <span class="fstat-no" title="function not covered" >(c</span>hunk) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >			buffer.push(chunk);</span>
+async function convertStreamToBuffer(stream) {
+	return new Promise((resolve, reject) =&gt; {
+		const buffer = [];
+		stream.on('data', (chunk) =&gt; {
+			buffer.push(chunk);
 		});
-<span class="cstat-no" title="statement not covered" >		stream.on('end', <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >resolve(Buffer.concat(buffer)))</span>;</span>
-<span class="cstat-no" title="statement not covered" >		stream.on('error', <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >reject(err))</span>;</span>
+		stream.on('end', () =&gt; resolve(Buffer.concat(buffer)));
+		stream.on('error', <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >reject(err))</span>;
 	});
 }
 &nbsp;
 const getImage = async (url) =&gt; {
 	try {
 		const response = await axios.get(url, {responseType : 'stream'});
-		const imageInBuffer = <span class="cstat-no" title="statement not covered" >await convertStreamToBuffer(response.data);</span>
-<span class="cstat-no" title="statement not covered" >		return imageInBuffer;</span>
+		const imageInBuffer = await convertStreamToBuffer(response.data);
+		return imageInBuffer;
 	} catch (error) {
-		console.log(error.message);
+<span class="cstat-no" title="statement not covered" >		console.log(error.message);</span>
 	}
 };
 &nbsp;
@@ -244,7 +244,7 @@ export const ResizeController = { resize };</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat May 07 2022 22:31:27 GMT+0530 (India Standard Time)
+                at Sat May 07 2022 23:34:35 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
