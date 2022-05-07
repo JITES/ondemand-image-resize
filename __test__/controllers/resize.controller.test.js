@@ -23,7 +23,7 @@ describe('Image Resize', () => {
 			.get('/resize?url=an-invalid-url&height=100&width=100')
 			.expect(422)
 			.expect(res => expect(res.text).toBe(
-				 '{"message":"Request validation failed","errors":[{"value":"an-invalid-url","msg":"Invalid value","param":"url","location":"query"}]}',
+				'{"message":"Request validation failed","errors":[{"value":"an-invalid-url","msg":"Invalid value","param":"url","location":"query"}]}',
 				
 			));
 	});
