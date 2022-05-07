@@ -1,5 +1,5 @@
 import request from 'supertest';
-import application from '../../src/index.js';
+import application from '../src/index.js';
 
 describe('Image Resize', () => {
 	it('GET -> resize should return 202', async () => {
