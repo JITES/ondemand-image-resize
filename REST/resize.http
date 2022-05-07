@@ -1,6 +1,5 @@
-# baseURL
+# Base URL
 @baseURL = http://localhost:8000
 
-###
-# Resize image
-GET {{ baseURL }}/resize?url=che&height=200&width=200
+#### Resize image
+GET {{ baseURL }}/resize?url=http://cdn.cnn.com/cnnnext/dam/assets/181002113456-01-golden-gate-bridge-restricted.jpg&height=500&width=500
