@@ -17,7 +17,7 @@ If it asking for permissions then please run the following command before runnin
 chmod +x ./script/npm.install.sh
 ```
 ### Execute a sample request
-If developer is using VSCODE, we can use REST/resize.http file to make sample request.
+If developer is using VSCODE with REST client plugin, we can use REST/resize.http file to make sample request.
 
 ### Assumptions
 - User will make a GET call to api.domain.com/timer?url=valid-cdn-link&height=100&width=100

@@ -15,4 +15,6 @@ application.use('/resize', router)
 
 application.listen(port, () => {
     console.log(`🚀 CloudCorp is running on port ${port}`);
-});
+}); 
+
+export default application; 

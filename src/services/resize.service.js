@@ -1,11 +1,13 @@
-import sharp from 'sharp'
+import sharp from 'sharp';
 
-async function resizeImage(buffer, width, height) {
-    await sharp(buffer).resize(width, height).toBuffer();
-    
-}
 async function resize(buffer, width, height) {
-    return resizeImage(buffer, width, height);
+	try {
+		const resized = await sharp(buffer).resize(width, height).toBuffer();
+		return resized;
+	} catch (error) {
+		console.log(error);
+	}
+    
 }
 
 export const ResizeService = { resize };

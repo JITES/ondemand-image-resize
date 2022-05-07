@@ -1,2 +1,3 @@
 const INVALID_REQUEST = 'Request validation failed';
-export { INVALID_REQUEST };
+const INVALID_IMAGE = 'Error while processing the image';
+export { INVALID_REQUEST, INVALID_IMAGE };
