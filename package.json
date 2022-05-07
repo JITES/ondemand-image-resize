@@ -8,7 +8,7 @@
     "start": "node src/index.js",
     "test": "jest"
   },
-  "author": "",
+  "author": "Jitesh - git - @jites",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
@@ -26,8 +26,21 @@
     "@babel/preset-env": "^7.17.10",
     "babel-jest": "^28.0.3",
     "eslint": "^8.15.0",
+    "husky": "^7.0.4",
     "jest": "^28.0.3",
+    "lint-staged": "^12.4.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.3"
+  },
+  "husky" : {
+    "hooks" : {
+      "pre-commit": "npm test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
