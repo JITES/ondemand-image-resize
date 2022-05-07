@@ -23,8 +23,9 @@ chmod +x ./script/npm.install.sh
 If developer is using VSCODE with REST client plugin, we can use REST/resize.http file to make sample request.
 
 ### Assumptions
-- User will make a GET call to api.domain.com/timer?url=valid-cdn-link&height=100&width=100
+- User will make a GET call to http://api.domain.com/resize?url=valid-cdn-link&height=100&width=100
 - User will pass valid image url along with height and width
+- User will call api to render image in html img tag
 
 ### About project
 - Express, Sharp
