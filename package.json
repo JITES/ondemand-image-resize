@@ -31,16 +31,5 @@
     "lint-staged": "^12.4.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.3"
-  },
-  "husky" : {
-    "hooks" : {
-      "pre-commit": "npm test && lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
   }
 }
