@@ -2,6 +2,8 @@ import { StatusCodes } from 'http-status-codes';
 import { ResizeService } from '../services/resize.service.js';
 import { validationResult } from 'express-validator';
 import { INVALID_REQUEST } from '../constants/constants.js';
+import {fileTypeFromBuffer} from 'file-type';
+
 import axios from 'axios';
 
 function isBuffer(buffer) {
@@ -22,7 +24,8 @@ const resize = async (req, res) => {
 		const resizedImage = await ResizeService.resize(imageBuffer,parseInt(width), parseInt(height));
 		const isValidResizedImage = isBuffer(resizedImage);
 		if(isValidResizedImage) {
-			res.set('Content-Type', 'image/png');
+			const {mime} = await fileTypeFromBuffer(resizedImage);
+			res.set('Content-Type', mime);
 			res.status(StatusCodes.ACCEPTED).send(resizedImage);
 		}
 		else {
