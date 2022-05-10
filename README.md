@@ -9,8 +9,7 @@ A service that exposes an API implementing an on-demand resize transformation.
 
 To make the application run, we have to install the dependencies by running the following script. 
 
-1. Install dependencies - Run the bash script ```sh ./script/npm.install.sh``` 
-2. Run the API - ``` npm run start ```
+- Run ``` docker-compose up ```
 
 If it asking for permissions then please run the following command before running the bash script.
 ```
