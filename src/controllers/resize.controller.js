@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { ResizeService } from '../services/resize.service.js';
 import { validationResult } from 'express-validator';
-import { INVALID_REQUEST, INVALID_IMAGE } from '../constants/constants.js';
+import { INVALID_REQUEST } from '../constants/constants.js';
 import axios from 'axios';
 
 function isBuffer(buffer) {
@@ -11,7 +11,7 @@ function isBuffer(buffer) {
 const resize = async (req, res) => {
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) 
-		return res.status(422).json({ message: INVALID_REQUEST, errors: errors.array() });
+		return res.status(422).json({ message: INVALID_REQUEST(), errors: errors.array() });
     
 	try {
 		const width = req.query.width;
@@ -27,7 +27,7 @@ const resize = async (req, res) => {
 		}
 		else {
 			console.log(`Image Valid - ${validImage}, Resized Image Valid - ${isValidResizedImage}`);
-			res.status(StatusCodes.BAD_REQUEST).send({ message : INVALID_IMAGE });
+			res.status(StatusCodes.BAD_REQUEST).send({ message : INVALID_REQUEST() });
 		}
 	} catch (error) {
 		console.log(error);
