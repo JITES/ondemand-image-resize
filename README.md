@@ -11,11 +11,6 @@ To make the application run, we have to install the dependencies by running the 
 
 - Run ``` docker-compose up ```
 
-If it asking for permissions then please run the following command before running the bash script.
-```
-chmod +x ./script/npm.install.sh
-```
-
 ### Test
 - Run ``` npm test ``` to execute test
 ### Execute a sample request
